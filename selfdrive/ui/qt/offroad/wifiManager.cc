@@ -102,7 +102,6 @@ void WifiManager::refreshNetworks() {
   QElapsedTimer timer;
   timer.start();
   ipv4_address = get_ipv4_address();  // TODO takes 4ms
-  qDebug() << "ipv4 address:" << timer.nsecsElapsed() / 1e+6;
   for (Network &network : get_networks()) {
     if (seen_ssids.count(network.ssid)) {
       continue;
@@ -110,7 +109,6 @@ void WifiManager::refreshNetworks() {
     seen_ssids.push_back(network.ssid);
     seen_networks.push_back(network);
   }
-
 }
 
 QString WifiManager::get_ipv4_address() {
@@ -290,10 +288,7 @@ void WifiManager::forgetConnection(const QString &ssid) {  // TODO: remove path 
   if (!path.path().isEmpty()) {
     QDBusInterface nm2(nm_service, path.path(), nm_settings_conn_iface, bus);
     nm2.call("Delete");
-//    qDebug() << known_connections;
-    qDebug() << "Index:" << index;
     known_connections.remove(index);
-//    qDebug() << known_connections;
   }
 }
 
@@ -387,7 +382,6 @@ void WifiManager::disconnect() {
 }
 
 QDBusObjectPath WifiManager::pathFromSsid(const QString &ssid, int &index) {
-//  QDBusObjectPath path;  // returns uninitialized path if network is not known
   index = 0;
   for (auto const& [conn_ssid, conn_path] : known_connections) {
     if (conn_ssid == ssid) {
