@@ -104,7 +104,7 @@ void Networking::refresh() {
 }
 
 void Networking::connectToNetwork(const Network &n) {
-  if (wifi->isKnownNetwork(n.ssid)) {
+  if (n.known) {
     wifi->activateWifiConnection(n.ssid);
   } else if (n.security_type == SecurityType::OPEN) {
     wifi->connect(n);
@@ -196,8 +196,11 @@ WifiUI::WifiUI(QWidget *parent, WifiManager* wifi) : QWidget(parent), wifi(wifi)
 }
 
 void WifiUI::refresh() {
+  QElapsedTimer timer;
+  timer.start();
   wifi->request_scan();
   wifi->refreshNetworks();
+  qDebug() << "Total time to refresh:" << timer.nsecsElapsed() / 1e+6;
   clearLayout(main_layout);
 
 //  connectButtons = new QButtonGroup(this); // TODO check if this is a leak
@@ -211,7 +214,7 @@ void WifiUI::refresh() {
     ssid_label->setStyleSheet("font-size: 55px;");
     hlayout->addWidget(ssid_label, 1, Qt::AlignLeft);
 
-    if (wifi->isKnownNetwork(network.ssid) && !wifi->tetheringEnabled()) {
+    if (network.known && !wifi->tetheringEnabled()) {
       QPushButton *forgetBtn = new QPushButton();
       QPixmap pix("../assets/offroad/icon_close.svg");
 

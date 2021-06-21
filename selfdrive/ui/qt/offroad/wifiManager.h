@@ -23,6 +23,7 @@ struct Network {
   unsigned int strength;
   ConnectedType connected;
   SecurityType security_type;
+  bool known;
 };
 
 class WifiManager : public QWidget {

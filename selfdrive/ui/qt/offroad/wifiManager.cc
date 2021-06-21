@@ -172,7 +172,7 @@ QList<Network> WifiManager::get_networks() {
         ctype = ConnectedType::CONNECTED;
       }
     }
-    Network network = {path.path(), ssid, strength, ctype, security};
+    Network network = {path.path(), ssid, strength, ctype, security, isKnownNetwork(ssid)};
 
     if (ssid.length()) {
       r.push_back(network);
@@ -390,12 +390,15 @@ QDBusObjectPath WifiManager::pathFromSsid(const QString &ssid) {
   return path;
 }
 
-QVector<QPair<QString, QDBusObjectPath>> WifiManager::listConnections() {
+QVector<QPair<QString, QDBusObjectPath>> WifiManager::listConnections() {  // TODO so we don't call this for each ssid
   QVector<QPair<QString, QDBusObjectPath>> connections;
   QDBusInterface nm(nm_service, nm_settings_path, nm_settings_iface, bus);
   nm.setTimeout(dbus_timeout);
 
+  QElapsedTimer timer;
+  timer.start();
   QDBusMessage response = nm.call("ListConnections");
+  qDebug() << "ListConnections time:" << timer.nsecsElapsed() / 1e+6;
   QVariant first =  response.arguments().at(0);
   const QDBusArgument &args = first.value<QDBusArgument>();
   args.beginArray();
