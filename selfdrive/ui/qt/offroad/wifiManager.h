@@ -23,7 +23,6 @@ struct Network {
   unsigned int strength;
   ConnectedType connected;
   SecurityType security_type;
-  bool known;
 };
 
 class WifiManager : public QWidget {
@@ -33,6 +32,7 @@ public:
 
   void request_scan();
   QVector<Network> seen_networks;
+  QVector<QPair<QString, QDBusObjectPath>> known_connections;
   QString ipv4_address;
 
   void refreshNetworks();
@@ -73,8 +73,8 @@ private:
   QByteArray get_property(const QString &network_path, const QString &property);
   unsigned int get_ap_strength(const QString &network_path);
   SecurityType getSecurityType(const QString &ssid);
-  QDBusObjectPath pathFromSsid(const QString &ssid);
-  QVector<QPair<QString, QDBusObjectPath>> listConnections();
+  QDBusObjectPath pathFromSsid(const QString &ssid, int &index);
+  void updateConnections();
 
 private slots:
   void change(unsigned int new_state, unsigned int previous_state, unsigned int change_reason);
