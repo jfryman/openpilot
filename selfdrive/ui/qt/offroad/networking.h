@@ -39,6 +39,7 @@ signals:
 public slots:
   void refresh();
   void handleButton(QAbstractButton* m_button);
+  void handleButtonNew(const Network &network);
 };
 
 class AdvancedNetworking : public QWidget {

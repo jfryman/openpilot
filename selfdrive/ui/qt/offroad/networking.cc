@@ -200,8 +200,8 @@ void WifiUI::refresh() {
   wifi->refreshNetworks();
   clearLayout(main_layout);
 
-  connectButtons = new QButtonGroup(this); // TODO check if this is a leak
-  QObject::connect(connectButtons, qOverload<QAbstractButton*>(&QButtonGroup::buttonClicked), this, &WifiUI::handleButton);
+//  connectButtons = new QButtonGroup(this); // TODO check if this is a leak
+//  QObject::connect(connectButtons, qOverload<QAbstractButton*>(&QButtonGroup::buttonClicked), this, &WifiUI::handleButton);
 
   int i = 0;
   for (Network &network : wifi->seen_networks) {
@@ -247,7 +247,8 @@ void WifiUI::refresh() {
     btn->setFixedWidth(350);
     hlayout->addWidget(btn, 0, Qt::AlignRight);
 
-    connectButtons->addButton(btn, i);
+//    connectButtons->addButton(btn, i);
+    QObject::connect(btn, &QPushButton::clicked, this, [=]() { handleButtonNew(network); });
 
     main_layout->addLayout(hlayout, 1);
     // Don't add the last horizontal line
@@ -260,7 +261,15 @@ void WifiUI::refresh() {
 }
 
 void WifiUI::handleButton(QAbstractButton* button) {
+  qDebug() << "Clicked:";
   QPushButton* btn = static_cast<QPushButton*>(button);
   Network n = wifi->seen_networks[connectButtons->id(btn)];
   emit connectToNetwork(n);
+}
+
+void WifiUI::handleButtonNew(const Network &network) {
+  qDebug() << "Clicked:" << network.ssid;
+//  QPushButton* btn = static_cast<QPushButton*>(button);
+//  Network n = wifi->seen_networks[connectButtons->id(btn)];
+  emit connectToNetwork(network);
 }
