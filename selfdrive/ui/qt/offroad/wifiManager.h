@@ -37,7 +37,7 @@ public:
 
   void refreshNetworks();
   void forgetConnection(const QString &ssid);
-  bool isKnownNetwork(const QString &ssid);
+  bool isKnownConnection(const QString &ssid);
 
   void connect(const Network &ssid);
   void connect(const Network &ssid, const QString &password);
@@ -73,7 +73,7 @@ private:
   QByteArray get_property(const QString &network_path, const QString &property);
   unsigned int get_ap_strength(const QString &network_path);
   SecurityType getSecurityType(const QString &ssid);
-  QDBusObjectPath pathFromSsid(const QString &ssid, int &index);
+  int getConnectionIndex(const QString &ssid);
   void updateConnections();
 
 private slots:
