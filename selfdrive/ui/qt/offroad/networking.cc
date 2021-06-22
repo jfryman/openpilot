@@ -105,18 +105,25 @@ void Networking::requestScan() {
 }
 
 void Networking::refreshSlot() {
-  wifiWidget->refresh();
-  an->refresh();
+  qDebug() << "Networking::refreshSlot";
+  for (int i=0;i<5;i++) {
+    wifiWidget->refresh();
+//    an->refresh();
+  }
+  qDebug() << "Networking::refreshSlotEND";
 }
 
 void Networking::connectToNetwork(const Network &n) {
   if (wifi->isKnownConnection(n.ssid)) {
+    qDebug() << "Activating connection!";
     wifi->activateWifiConnection(n.ssid);
   } else if (n.security_type == SecurityType::OPEN) {
     wifi->connect(n);
   } else if (n.security_type == SecurityType::WPA) {
     QString pass = InputDialog::getText("Enter password for \"" + n.ssid + "\"", 8);
-    wifi->connect(n, pass);
+    if (!pass.isEmpty()) {
+      wifi->connect(n, pass);
+    }
   }
 }
 
@@ -145,6 +152,7 @@ AdvancedNetworking::AdvancedNetworking(QWidget* parent, WifiManager* wifi): QWid
   main_layout->addWidget(back, 0, Qt::AlignLeft);
 
   // Enable tethering layout
+  wifi->active_ap = wifi->get_active_ap();
   ToggleControl *tetheringToggle = new ToggleControl("Enable Tethering", "", "", wifi->tetheringEnabled());
   main_layout->addWidget(tetheringToggle);
   QObject::connect(tetheringToggle, &ToggleControl::toggleFlipped, this, &AdvancedNetworking::toggleTethering);
@@ -202,14 +210,18 @@ WifiUI::WifiUI(QWidget *parent, WifiManager* wifi) : QWidget(parent), wifi(wifi)
 
 void WifiUI::refresh() {
   clearLayout(main_layout);
+  // qDebug() << "1";
 
   int i = 0;
+  // qDebug() << "2";
   for (Network &network : wifi->seen_networks) {
+    // qDebug() << "2.2";
     QHBoxLayout *hlayout = new QHBoxLayout;
 
     QLabel *ssid_label = new QLabel(QString::fromUtf8(network.ssid));
     ssid_label->setStyleSheet("font-size: 55px;");
     hlayout->addWidget(ssid_label, 1, Qt::AlignLeft);
+    // qDebug() << "2.3";
 
     if (wifi->isKnownConnection(network.ssid) && !wifi->tetheringEnabled()) {
       QPushButton *forgetBtn = new QPushButton();
@@ -236,25 +248,32 @@ void WifiUI::refresh() {
 
       hlayout->addWidget(lockIcon, 0, Qt::AlignRight);
     }
+    // qDebug() << "2.4";
 
     // strength indicator
     unsigned int strength_scale = network.strength / 17;
     hlayout->addWidget(new NetworkStrengthWidget(strength_scale), 0, Qt::AlignRight);
+    // qDebug() << "2.5";
 
     // connect button
     QPushButton* btn = new QPushButton(network.security_type == SecurityType::UNSUPPORTED ? "Unsupported" : (network.connected == ConnectedType::CONNECTED ? "Connected" : (network.connected == ConnectedType::CONNECTING ? "Connecting" : "Connect")));
     btn->setDisabled(network.connected == ConnectedType::CONNECTED || network.connected == ConnectedType::CONNECTING || network.security_type == SecurityType::UNSUPPORTED);
     btn->setFixedWidth(350);
     hlayout->addWidget(btn, 0, Qt::AlignRight);
+    // qDebug() << "2.6";
 
     QObject::connect(btn, &QPushButton::clicked, this, [=]() { emit connectToNetwork(network); });
+    // qDebug() << "2.7";
 
     main_layout->addLayout(hlayout, 1);
     // Don't add the last horizontal line
-    if (i+1 < wifi->seen_networks.size()) {
+    // qDebug() << "2.8";
+    if (i + 1 < wifi->seen_networks.size()) {
       main_layout->addWidget(horizontal_line(), 0);
     }
     i++;
+    // qDebug() << "2.9";
   }
+//  qDebug() << "3";
   main_layout->addStretch(3);
 }
