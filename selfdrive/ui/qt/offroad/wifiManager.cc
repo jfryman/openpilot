@@ -99,8 +99,6 @@ WifiManager::WifiManager(QWidget* parent) : QWidget(parent) {
 void WifiManager::refreshNetworks() {
   seen_networks.clear();
   seen_ssids.clear();
-  QElapsedTimer timer;
-  timer.start();
   ipv4_address = get_ipv4_address();
   for (Network &network : get_networks()) {
     if (seen_ssids.count(network.ssid)) {
@@ -146,10 +144,10 @@ QString WifiManager::get_ipv4_address() {
 }
 
 QList<Network> WifiManager::get_networks() {
-  updateConnections();
   QList<Network> r;
   QDBusInterface nm(nm_service, adapter, wireless_device_iface, bus);
   nm.setTimeout(dbus_timeout);
+  updateConnections();
 
   const QString active_ap = get_active_ap();
   const QDBusReply<QList<QDBusObjectPath>> response = nm.call("GetAllAccessPoints");
@@ -281,9 +279,9 @@ bool WifiManager::isKnownConnection(const QString &ssid) {
 }
 
 void WifiManager::forgetConnection(const QString &ssid) {
-  int index = getConnectionIndex(ssid);
+  const int index = getConnectionIndex(ssid);
   if (index != -1) {
-    QDBusObjectPath path = known_connections.at(index).second;
+    const QDBusObjectPath &path = known_connections.at(index).second;
     QDBusInterface nm2(nm_service, path.path(), nm_settings_conn_iface, bus);
     nm2.call("Delete");
     known_connections.remove(index);
@@ -401,9 +399,9 @@ void WifiManager::updateConnections() {
 }
 
 void WifiManager::activateWifiConnection(const QString &ssid) {
-  int index = getConnectionIndex(ssid);
+  const int index = getConnectionIndex(ssid);
   if (index != -1) {
-    QDBusObjectPath path = known_connections.at(index).second;
+    const QDBusObjectPath &path = known_connections.at(index).second;
     QString devicePath = get_adapter();
     QDBusInterface nm3(nm_service, nm_path, nm_iface, bus);
     nm3.setTimeout(dbus_timeout);

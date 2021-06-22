@@ -196,11 +196,8 @@ WifiUI::WifiUI(QWidget *parent, WifiManager* wifi) : QWidget(parent), wifi(wifi)
 }
 
 void WifiUI::refresh() {
-  QElapsedTimer timer;
-  timer.start();
   wifi->request_scan();
   wifi->refreshNetworks();
-  qDebug() << "Total time to refresh:" << timer.nsecsElapsed() / 1e+6;
   clearLayout(main_layout);
 
   int i = 0;
