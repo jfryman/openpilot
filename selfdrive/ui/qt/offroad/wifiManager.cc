@@ -150,10 +150,9 @@ QList<Network> WifiManager::get_networks() {
   QList<Network> r;
   QDBusInterface nm(nm_service, adapter, wireless_device_iface, bus);
   nm.setTimeout(dbus_timeout);
-  QDBusReply<QList<QDBusObjectPath>> response = nm.call("GetAllAccessPoints");
 
-  QString active_ap = get_active_ap();
-
+  const QString active_ap = get_active_ap();
+  const QDBusReply<QList<QDBusObjectPath>> response = nm.call("GetAllAccessPoints");
 
   for (const QDBusObjectPath &path : response.value()) {
     QByteArray ssid = get_property(path.path(), "Ssid");
@@ -335,17 +334,10 @@ QString WifiManager::get_adapter() {
   QDBusInterface nm(nm_service, nm_path, nm_iface, bus);
   nm.setTimeout(dbus_timeout);
 
-  QDBusMessage response = nm.call("GetDevices");
-  QVariant first =  response.arguments().at(0);
-
   QString adapter_path = "";
+  const QDBusReply<QList<QDBusObjectPath>> response = nm.call("GetDevices");
 
-  const QDBusArgument &args = first.value<QDBusArgument>();
-  args.beginArray();
-  while (!args.atEnd()) {
-    QDBusObjectPath path;
-    args >> path;
-
+  for (const QDBusObjectPath &path : response.value()) {
     // Get device type
     QDBusInterface device_props(nm_service, path.path(), props_iface, bus);
     device_props.setTimeout(dbus_timeout);
@@ -358,7 +350,6 @@ QString WifiManager::get_adapter() {
       break;
     }
   }
-  args.endArray();
 
   return adapter_path;
 }
@@ -374,7 +365,7 @@ void WifiManager::change(unsigned int new_state, unsigned int previous_state, un
 }
 
 void WifiManager::disconnect() {
-  QString active_ap = get_active_ap();
+  const QString active_ap = get_active_ap();
   if (active_ap != "" && active_ap != "/") {
     deactivateConnection(get_property(active_ap, "Ssid"));
   }
@@ -397,6 +388,7 @@ void WifiManager::updateConnections() {
   nm.setTimeout(dbus_timeout);
 
   const QDBusReply<QList<QDBusObjectPath>> response = nm.call("ListConnections");
+
   for (const QDBusObjectPath &path : response.value()) {
     QDBusInterface nm2(nm_service, path.path(), nm_settings_conn_iface, bus);
     nm2.setTimeout(dbus_timeout);
