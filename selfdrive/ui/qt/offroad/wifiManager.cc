@@ -71,47 +71,49 @@ WifiManager::WifiManager(QWidget* parent) : QWidget(parent) {
   qDBusRegisterMetaType<IpConfig>();
   connecting_to_network = "";
 
-  adapter = getAdapter();
-  if (!adapter.isEmpty()) {
-    setup();
-  } else {
-    bus.connect(nm_service, nm_path, nm_iface, "DeviceAdded", this, SLOT(deviceAdded(QDBusObjectPath)));
+  // Set tethering ssid as "weedle" + first 4 characters of a dongle id
+  tethering_ssid = "weedle";
+  std::string bytes = Params().get("DongleId");
+  if (bytes.length() >= 4) {
+    tethering_ssid += "-" + QString::fromStdString(bytes.substr(0, 4));
   }
-}
-
-void WifiManager::setup() {
-  QDBusInterface nm(nm_service, adapter, device_iface, bus);
-  bus.connect(nm_service, adapter, device_iface, "StateChanged", this, SLOT(stateChange(unsigned int, unsigned int, unsigned int)));
-  bus.connect(nm_service, adapter, props_iface, "PropertiesChanged", this, SLOT(propertyChange(QString, QVariantMap, QStringList)));
 
   bus.connect(nm_service, nm_settings_path, nm_settings_iface, "ConnectionRemoved", this, SLOT(connectionRemoved(QDBusObjectPath)));
   bus.connect(nm_service, nm_settings_path, nm_settings_iface, "NewConnection", this, SLOT(newConnection(QDBusObjectPath)));
+
+  adapter = getAdapter();
+  if (!adapter.isEmpty()) {
+    setupAdapter();
+  }
+  bus.connect(nm_service, nm_path, nm_iface, "DeviceAdded", this, SLOT(deviceAdded(QDBusObjectPath)));
+
+  QTimer* timer = new QTimer(this);
+  QObject::connect(timer, &QTimer::timeout, this, [=]() {
+    if (!adapter.isEmpty() && this->isVisible()) {
+      requestScan();
+    }
+  });
+  timer->start(5000);
+
+  // Create dbus interface for tethering button. This populates the introspection cache,
+  // making sure all future creations are non-blocking
+  // https://bugreports.qt.io/browse/QTBUG-14485
+  QDBusInterface(nm_service, nm_settings_path, nm_settings_iface, bus);
+}
+
+void WifiManager::setupAdapter() {
+  QDBusInterface nm(nm_service, adapter, device_iface, bus);
+  bus.connect(nm_service, adapter, device_iface, "StateChanged", this, SLOT(stateChange(unsigned int, unsigned int, unsigned int)));
+  bus.connect(nm_service, adapter, props_iface, "PropertiesChanged", this, SLOT(propertyChange(QString, QVariantMap, QStringList)));
 
   QDBusInterface device_props(nm_service, adapter, props_iface, bus);
   device_props.setTimeout(dbus_timeout);
   QDBusMessage response = device_props.call("Get", device_iface, "State");
   raw_adapter_state = get_response<uint>(response);
 
-  // Set tethering ssid as "weedle" + first 4 characters of a dongle id
-  tethering_ssid = "weedle";
-  std::string bytes = Params().get("DongleId");
-  if (bytes.length() >= 4) {
-    tethering_ssid+="-"+QString::fromStdString(bytes.substr(0,4));
-  }
+  requestScan();
   activeAp = getActiveAp();
   tetheringEnabled = getApProperty(activeAp, "Ssid") == tethering_ssid;
-
-  QTimer* timer = new QTimer(this);
-  QObject::connect(timer, &QTimer::timeout, this, [=]() {
-    if (this->isVisible()) requestScan();
-  });
-  timer->start(5000);
-  requestScan();
-
-  // Create dbus interface for tethering button. This populates the introspection cache,
-  // making sure all future creations are non-blocking
-  // https://bugreports.qt.io/browse/QTBUG-14485
-  QDBusInterface(nm_service, nm_settings_path, nm_settings_iface, bus);
 }
 
 void WifiManager::refreshNetworks() {
@@ -396,9 +398,9 @@ void WifiManager::updateUI() {
 }
 
 void WifiManager::deviceAdded(const QDBusObjectPath &path) {
-  if (isWirelessAdapter(path) && adapter.isEmpty()) {
+  if (isWirelessAdapter(path)) {
     adapter = path.path();
-    setup();
+    setupAdapter();
   }
 }
 
