@@ -396,7 +396,7 @@ void WifiManager::updateUI() {
 }
 
 void WifiManager::deviceAdded(const QDBusObjectPath &path) {
-  if (isWirelessAdapter(path)) {
+  if (isWirelessAdapter(path) && adapter.isEmpty()) {
     adapter = path.path();
     setup();
   }
