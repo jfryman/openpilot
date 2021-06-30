@@ -300,6 +300,7 @@ void WifiManager::requestScan() {
   QDBusInterface nm(nm_service, adapter, wireless_device_iface, bus);
   nm.setTimeout(dbus_timeout);
   nm.call("RequestScan",  QVariantMap());
+  outstandingScans += 1;
 }
 
 uint WifiManager::get_wifi_device_state() {
@@ -384,7 +385,9 @@ void WifiManager::stateChange(unsigned int new_state, unsigned int previous_stat
 // https://developer.gnome.org/NetworkManager/stable/gdbus-org.freedesktop.NetworkManager.Device.Wireless.html
 void WifiManager::propertyChange(const QString &interface, const QVariantMap &props, const QStringList &invalidated_props) {
   if (interface == wireless_device_iface && props.contains("LastScan")) {
+    outstandingScans -= 1;
     qDebug() << "LAST_SCAN";
+    qDebug() << "OUTSTANDING SCANS:" << outstandingScans;
     if (knownConnections.isEmpty()) {
       knownConnections = listConnections();
     }

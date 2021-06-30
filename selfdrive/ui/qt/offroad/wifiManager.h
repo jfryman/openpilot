@@ -54,6 +54,7 @@ public:
   void changeTetheringPassword(const QString &newPassword);
 
 private:
+  int outstandingScans = 0;
   QVector<QByteArray> seen_ssids;
   QString adapter;  // Path to network manager wifi-device
   QDBusConnection bus = QDBusConnection::systemBus();
