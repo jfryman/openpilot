@@ -2,7 +2,8 @@
 
 # ensure all submodules are on commit
 while read hash submodule ref; do
-  git -C $submodule branch -a --contains $hash | grep "remotes/origin/master" >/dev/null
+  git -C $submodule branch -a --contains $hash
+  git -C $submodule branch -a --contains $hash | grep "remotes/origin/master"
   if [ "$?" -eq 0 ]; then
     echo "$submodule ok"
   else
