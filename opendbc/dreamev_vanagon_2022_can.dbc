@@ -1,0 +1,986 @@
+BO_ 504 BrakeMessage: 8 XXX
+ SG_ driverBrakeStatus : 2|2@1+ (1,0) [0|3] "" XXX
+
+BO_ 359 STEERING_IPAS_COMMA: 8 IPAS
+ SG_ STATE : 7|4@0+ (1,0) [0|15] "" XXX
+ SG_ ANGLE : 3|12@0- (1.5,0) [-510|510] "deg" XXX
+ SG_ SET_ME_X10 : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ SET_ME_X00 : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ DIRECTION_CMD : 38|2@0+ (1,0) [0|3] "" XXX
+ SG_ SET_ME_X40 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ SET_ME_X00_1 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ CHECKSUM : 63|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 37 STEER_ANGLE_SENSOR: 8 XXX
+ SG_ STEER_ANGLE : 3|12@0- (1.5,0) [-500|500] "deg" XXX
+ SG_ STEER_FRACTION : 39|4@0- (0.1,0) [-0.7|0.7] "deg" XXX
+ SG_ STEER_RATE : 35|12@0- (1,0) [-2000|2000] "deg/s" XXX
+
+// START Model S
+BO_ 614 STEERING_IPAS: 8 IPAS
+ SG_ STATE : 7|4@0+ (1,0) [0|15] "" XXX
+ SG_ ANGLE : 3|12@0- (1.5,0) [-510|510] "deg" XXX
+ SG_ SET_ME_X10 : 23|8@0+ (1,0) [0|255] "" XXX
+ SG_ SET_ME_X00 : 31|8@0+ (1,0) [0|255] "" XXX
+ SG_ DIRECTION_CMD : 38|2@0+ (1,0) [0|3] "" XXX
+ SG_ SET_ME_X40 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ SET_ME_X00_1 : 55|8@0+ (1,0) [0|255] "" XXX
+ SG_ CHECKSUM : 63|8@0+ (1,0) [0|255] "" XXX
+
+BO_ 262 DI_torque1: 8 ETH
+ SG_ DI_motorRPM: 32|16@1- (1,0) [0|0] "RPM" X
+ SG_ DI_pedalPos: 48|8@1+ (0.4,0) [0|0] "%" X
+ SG_ DI_soptState: 29|3@1+ (1,0) [0|0] "" X
+ SG_ DI_torque1Checksum: 56|8@1+ (1,0) [0|0] "" X
+ SG_ DI_torque1Counter: 13|3@1+ (1,0) [0|0] "" X
+ SG_ DI_torqueDriver: 0|13@1- (0.25,0) [0|0] "Nm" X
+ SG_ DI_torqueMotor: 16|13@1- (0.25,0) [0|0] "Nm" X
+
+BO_ 264 DI_vehicleEstimates: 8 ETH
+ SG_ DI_aeroCdA: 24|8@1+ (0.005,0.5) [0|0] "m^2" X
+ SG_ DI_gradeEst: 33|7@1- (1,0) [0|0] "%" X
+ SG_ DI_gradeEstInternal: 48|7@1- (1,0) [0|0] "%" X
+ SG_ DI_mass: 0|10@1+ (5,1900) [0|0] "kg" X
+ SG_ DI_massConfidence: 32|1@1+ (1,0) [0|0] "" X
+ SG_ DI_steerCenter: 56|8@1- (0.2,0) [0|0] "deg" X
+ SG_ DI_tireCrr: 16|8@1+ (5e-05,0.005) [0|0] "N/N" X
+ SG_ DI_tireFitment: 10|2@1+ (1,0) [0|0] "" X
+ SG_ DI_trailerDetected: 12|1@1+ (1,0) [0|0] "" X
+ SG_ DI_vehicleEstimatesChecksum: 40|8@1+ (1,0) [0|0] "" X
+ SG_ DI_vehicleEstimatesCounter: 13|3@1+ (1,0) [0|0] "" X
+
+BO_ 277 DIS_torque1: 7 ETH
+ SG_ DIS_motorRPM: 32|16@1- (1,0) [0|0] "RPM" X
+ SG_ DIS_soptState: 29|3@1+ (1,0) [0|0] "" X
+ SG_ DIS_torque1Checksum: 48|8@1+ (1,0) [0|0] "" X
+ SG_ DIS_torque1Counter: 13|3@1+ (1,0) [0|0] "" X
+ SG_ DIS_torqueDriver: 0|13@1- (0.25,0) [0|0] "Nm" X
+ SG_ DIS_torqueMotor: 16|13@1- (0.25,0) [0|0] "Nm" X 
+
+BO_ 293 ESP_125h: 4 ETH
+ SG_ ESP_125hChecksum: 16|8@1+ (1,0) [0|0] "" X
+ SG_ ESP_125hCounter: 24|4@1+ (1,0) [0|0] "" X
+ SG_ Lat_Acceleration: 8|8@1- (0.08,0) [0|0] "m/s^2" X
+ SG_ Long_Acceleration: 0|8@1- (0.08,0) [0|0] "m/s^2" X
+
+BO_ 294 DI_motorControl: 8 ETH
+ SG_ DI_limitBaseSpeed: 47|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDcCableTemp: 58|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDcCapTemp: 49|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDeltaFluidTemp: 37|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDiff: 54|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDischargePower: 38|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitDriveTorque: 42|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitGracefulPowerOff: 55|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitIBat: 48|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitIGBTJunctTemp: 56|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitInverterTemp: 33|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitLimpMode: 36|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitMotorCurrent: 40|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitMotorSpeed: 52|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitMotorVoltage: 41|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitObstacleDetection: 60|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitOilPumpFluidTemp: 59|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitPCBTemp: 32|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitPoleTemp: 35|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitRegenPower: 39|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitRegenTorque: 43|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitShift: 46|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitShockTorque: 57|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitStatorTemp: 34|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitTCDrive: 44|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitTCRegen: 45|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitVBatHigh: 51|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitVBatLow: 50|1@1+ (1,0) [0|0] "" X
+ SG_ DI_limitVehicleSpeed: 53|1@1+ (1,0) [0|0] "" X
+ SG_ DI_motorCurrent: 16|11@1+ (1,0) [0|0] "A" X
+ SG_ DI_vBat: 0|10@1+ (0.5,0) [0|0] "V" X
+
+BO_ 540 CHG_status: 8 ETH
+ SG_ CHG_GFCICurrent: 48|7@1+ (0.4,0) [0|0] "mA" X
+ SG_ CHG_cableState: 27|2@1+ (1,0) [0|0] "" X
+ SG_ CHG_cableType: 24|3@1+ (1,0) [0|0] "" X
+ SG_ CHG_evseAccept: 0|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_evseRequest: 1|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_inputRelayState: 62|2@1+ (1,0) [0|0] "" X
+ SG_ CHG_lineChgShuttingDown: 40|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_mainState: 4|4@1+ (1,0) [0|0] "" X
+ SG_ CHG_maxLineCurrent: 55|7@1+ (1,0) [0|0] "A" X
+ SG_ CHG_phaseConfig: 29|3@1+ (1,0) [0|0] "" X
+ SG_ CHG_pilot: 13|3@1+ (1,0) [0|0] "" X
+ SG_ CHG_pilotCurrent: 16|8@1+ (0.5,0) [0|0] "A" X
+ SG_ CHG_proximity: 11|2@1+ (1,0) [0|0] "" X
+ SG_ CHG_proximitySimUnlatched: 10|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_requestHVACPowerOn: 9|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_retryCount: 2|2@1+ (1,0) [0|0] "" X
+ SG_ CHG_subState: 41|6@1+ (1,0) [0|0] "" X
+ SG_ CHG_v12V: 32|8@1+ (0.1,0) [0|0] "V" X
+ SG_ CHG_voltageLimitAchieved: 8|1@1+ (1,0) [0|0] "" X
+ SG_ CHG_waveformDataReady: 47|1@1+ (1,0) [0|0] "" X
+
+BO_ 598 DI_state: 8 ETH
+ SG_ DI_aebState: 41|3@1+ (1,0) [0|0] "" X
+ SG_ DI_analogSpeed: 16|12@1+ (0.1,0) [0|0] "speed" X
+ SG_ DI_cruiseSet: 32|9@1+ (0.5,0) [0|0] "speed" X
+ SG_ DI_cruiseState: 12|4@1+ (1,0) [0|0] "" X
+ SG_ DI_digitalSpeed: 48|8@1+ (1,0) [0|0] "" X
+ SG_ DI_driveReady: 7|1@1+ (1,0) [0|0] "" X
+ SG_ DI_immobilizerState: 28|3@1+ (1,0) [0|0] "" X
+ SG_ DI_proximity: 6|1@1+ (1,0) [0|0] "" X
+ SG_ DI_regenLight: 8|1@1+ (1,0) [0|0] "" X
+ SG_ DI_speedUnits: 31|1@1+ (1,0) [0|0] "" X
+ SG_ DI_state: 9|3@1+ (1,0) [0|0] "" X
+ SG_ DI_stateChecksum: 56|8@1+ (1,0) [0|0] "" X
+ SG_ DI_stateCounter: 44|4@1+ (1,0) [0|0] "" X
+ SG_ DI_systemState: 0|3@1+ (1,0) [0|0] "" X
+ SG_ DI_vehicleHoldState: 3|3@1+ (1,0) [0|0] "" X
+
+BO_ 614 DI_power: 8 ETH
+ SG_ DI_aps12V: 0|8@1+ (0.1,0) [0|0] "V" X
+ SG_ DI_dissipation: 8|8@1+ (125,0) [0|0] "W" X
+ SG_ DI_drivePowerMax: 43|10@1+ (1,0) [0|0] "kW" X
+ SG_ DI_maxPowerRequest: 53|1@1+ (1,0) [0|0] "" X
+ SG_ DI_mechPower: 16|11@1- (0.5,0) [0|0] "kW" X
+ SG_ DI_regenPowerMax: 54|10@1+ (1,-200) [0|0] "kW" X
+ SG_ DI_statorCurrent: 32|11@1+ (1,0) [0|0] "A" X
+
+BO_ 615 TAS_warningMatrix4: 8 ETH
+ SG_ TAS_a200_jackModeActive: 7|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a201_lowHVBattery: 8|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a210_outOfRangeCalibration: 17|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a211_noRideHeightCalib: 18|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a212_noCurrentSenseCalib: 19|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a213_yellowWarningLamp: 20|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a214_redWarningLamp: 21|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a215_limpHomeMode10: 22|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a216_limpHomeMode20: 23|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a217_limpHomeMode30: 24|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a218_limpHomeMode40: 25|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a220_exhaustGalleryFault: 27|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a221_valveLeakDetected: 28|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a222_compressorPrefillFault: 29|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a223_blockedAirline: 30|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a224_openAirline: 31|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a225_galleryPressureTooHigh: 32|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a226_PWMfastDetectFL: 33|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a227_PWMfastDetectFR: 34|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a228_PWMfastDetectRL: 35|1@1+ (1,0) [0|0] "" X
+ SG_ TAS_a229_PWMfastDetectRR: 36|1@1+ (1,0) [0|0] "" X
+
+BO_ 741 DIS_power: 8 ETH
+ SG_ DIS_aps12V: 0|8@1+ (0.1,0) [0|0] "V" X
+ SG_ DIS_dissipation: 8|8@1+ (125,0) [0|0] "W" X
+ SG_ DIS_drivePowerMax: 43|10@1+ (1,0) [0|0] "kW" X
+ SG_ DIS_mechPower: 16|11@1- (0.5,0) [0|0] "kW" X
+ SG_ DIS_statorCurrent: 32|11@1+ (1,0) [0|0] "A" X 
+
+BO_ 772 EPB_alertMatrix0: 8 ETH
+ SG_ EPB_f001_leftEncIntrpt: 0|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f002_leftIdleOc: 1|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f003_leftEncIrrational: 2|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f004_leftEncoderSna: 3|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f005_leftOc: 4|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f006_leftUc: 5|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f007_leftEndStop: 6|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f008_leftShortApply: 7|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f009_leftNShort: 8|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f010_leftPShort: 9|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f011_leftNOpen: 10|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f012_leftPOpen: 11|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f013_leftEnaStuckHigh: 12|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f014_leftEnaStuckLow: 13|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f015_leftDriveDuration: 14|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f016_leftPHalfBridge: 15|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f017_leftNHalfBridge: 16|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f018_leftNvOv: 17|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f019_leftNvUv: 18|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f020_leftPvOv: 19|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f021_leftPvUv: 20|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f022_leftSubstateErr: 21|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f023_leftFirstShortApply: 22|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f024_motorShortedReleaseL: 23|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f025_motorShortedApplyL: 24|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f026_noCurrentCalL: 25|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f027_spuriousEncIntL: 26|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f028_reqStateErr: 27|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f029_stateErr: 28|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f030_interProcSpi: 29|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f031_chgMIA: 30|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f032_canDisabled: 31|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f033_canHardware: 32|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f034_canData: 33|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f035_canErr: 34|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f036_canOverrun: 35|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f037_firmware: 36|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f038_eeprom: 37|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f039_watchdogReset: 38|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f040_memoryError: 39|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f041_spiOpen: 40|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f042_spiRead: 41|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f043_absMIA: 42|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f044_diMIA: 43|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f045_gtwMIA: 44|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f046_sccmMIA: 45|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f047_epbmMIA: 46|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f048_mcuMIA: 47|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f049_espMIA: 48|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f050_resetRequired: 49|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f051_epbNotApplied: 50|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f052_epbProblem: 51|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f053_epbNotReleased: 52|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f054_severeShortApply: 53|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f055_stackOverflow: 54|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f056_12vOv: 55|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f057_12vUv: 56|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f058_5vLost: 57|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f059_battMismatch: 58|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f060_maxCycles1: 59|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f061_maxCycles2: 60|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f062_diGearInvld: 61|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f063_parkWhlSpeed: 62|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_f064_EPBMTimeout: 63|1@1+ (1,0) [0|0] "" X
+
+BO_ 774 DI_temperature: 8 ETH
+ SG_ DI_dcCapT: 24|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_heatsinkT: 32|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_inletT: 40|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_inverterT: 8|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_inverterTpct: 48|8@1+ (0.4,0) [0|0] "%" X
+ SG_ DI_pcbT: 0|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_statorT: 16|8@1+ (1,-40) [0|0] "DegC" X
+ SG_ DI_statorTpct: 56|8@1+ (0.4,0) [0|0] "%" X
+
+BO_ 778 THC_coolantFlow: 8 ETH
+ SG_ THC_12VpowerNeeded: 39|1@1+ (1,0) [0|0] "" X
+ SG_ THC_PTPumpActive: 19|1@1+ (1,0) [0|0] "" X
+ SG_ THC_PTWasteHeatOn: 17|1@1+ (1,0) [0|0] "" X
+ SG_ THC_batteryHeaterOn: 16|1@1+ (1,0) [0|0] "" X
+ SG_ THC_batteryPumpsActive: 20|1@1+ (1,0) [0|0] "" X
+ SG_ THC_botLevelSensOK: 33|1@1+ (1,0) [0|0] "" X
+ SG_ THC_chillSolActive: 23|1@1+ (1,0) [0|0] "" X
+ SG_ THC_chillerBypassYMaxUCPct: 48|7@1+ (1,0) [0|0] "%" X
+ SG_ THC_chillerCompArbState: 40|4@1+ (1,0) [0|0] "" X
+ SG_ THC_chillerMode: 44|2@1+ (1,0) [0|0] "" X
+ SG_ THC_compressorActive: 24|1@1+ (1,0) [0|0] "" X
+ SG_ THC_condFanLeftActive: 22|1@1+ (1,0) [0|0] "" X
+ SG_ THC_condFanRightActive: 21|1@1+ (1,0) [0|0] "" X
+ SG_ THC_coolantBatFlowPct: 56|7@1+ (1,0) [0|0] "%" X
+ SG_ THC_currentModeTransPri: 28|4@1+ (1,0) [0|0] "" X
+ SG_ THC_desiredMode: 8|2@1+ (1,0) [0|0] "" X
+ SG_ THC_desiredModeTransPri: 36|3@1+ (1,0) [0|0] "" X
+ SG_ THC_evapSolActive: 18|1@1+ (1,0) [0|0] "" X
+ SG_ THC_limpModeAct: 34|1@1+ (1,0) [0|0] "" X
+ SG_ THC_mode: 46|2@1+ (1,0) [0|0] "" X
+ SG_ THC_modeValveParallel: 25|1@1+ (1,0) [0|0] "" X
+ SG_ THC_postRunRequest: 32|1@1+ (1,0) [0|0] "" X
+ SG_ THC_previousMode: 26|2@1+ (1,0) [0|0] "" X
+
+BO_ 786 BMS_thermalStatus: 8 ETH
+ SG_ BMS_battTempPct: 56|7@1+ (1,0) [0|0] "%" X
+ SG_ BMS_dragStripStatus: 17|3@1+ (1,0) [0|0] "" X
+ SG_ BMS_dsTargetTimeEst: 10|7@1+ (1,0) [0|0] "min" X
+ SG_ BMS_flowRequest: 20|7@1+ (1,0) [0|0] "%" X
+ SG_ BMS_inletActiveCoolTargetT: 27|7@1+ (1,0) [0|0] "DegC" X
+ SG_ BMS_inletActiveHeatTargetT: 41|7@1+ (1,-40) [0|0] "DegC" X
+ SG_ BMS_inletPassiveTargetT: 34|7@1+ (1,-20) [0|0] "DegC" X
+ SG_ BMS_noFlowRequest: 63|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_packTemperature: 48|8@1- (1,40) [0|0] "C" X
+ SG_ BMS_powerDissipation: 0|10@1+ (0.02,0) [0|0] "kW" X
+
+BO_ 788 EPB_alertMatrix2: 8 ETH
+ SG_ EPB_w001_leftEncIntrpt: 0|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w002_leftIdleOc: 1|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w003_leftEncIrrational: 2|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w004_leftEncoderSna: 3|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w005_leftOc: 4|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w006_leftUc: 5|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w007_leftEndStop: 6|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w008_leftShortApply: 7|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w009_leftNShort: 8|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w010_leftPShort: 9|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w011_leftNOpen: 10|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w012_leftPOpen: 11|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w013_leftEnaStuckHigh: 12|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w014_leftEnaStuckLow: 13|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w015_leftDriveDuration: 14|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w016_leftPHalfBridge: 15|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w017_leftNHalfBridge: 16|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w018_leftNvOv: 17|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w019_leftNvUv: 18|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w020_leftPvOv: 19|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w021_leftPvUv: 20|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w022_leftSubstateErr: 21|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w023_leftFirstShortApply: 22|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w024_motorShortedReleaseL: 23|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w025_motorShortedApplyL: 24|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w026_noCurrentCalL: 25|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w027_spuriousEncIntL: 26|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w028_reqStateErr: 27|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w029_stateErr: 28|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w030_interProcSpi: 29|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w031_chgMIA: 30|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w032_canDisabled: 31|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w033_canHardware: 32|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w034_canData: 33|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w035_canErr: 34|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w036_canOverrun: 35|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w037_firmware: 36|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w038_eeprom: 37|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w039_watchdogReset: 38|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w040_memoryError: 39|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w041_spiOpen: 40|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w042_spiRead: 41|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w043_absMIA: 42|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w044_diMIA: 43|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w045_gtwMIA: 44|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w046_sccmMIA: 45|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w047_epbmMIA: 46|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w048_mcuMIA: 47|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w049_espMIA: 48|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w050_resetRequired: 49|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w051_epbNotApplied: 50|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w052_epbProblem: 51|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w053_epbNotReleased: 52|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w054_severeShortApply: 53|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w055_stackOverflow: 54|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w056_12vOv: 55|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w057_12vUv: 56|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w058_5vLost: 57|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w059_battMismatch: 58|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w060_maxCycles1: 59|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w061_maxCycles2: 60|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w062_diGearInvld: 61|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w063_parkWhlSpeed: 62|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_w064_EPBMTimeout: 63|1@1+ (1,0) [0|0] "" X 
+
+BO_ 797 BCS2R_warningMatrix2: 8 ETH
+ SG_ BCS2R_w065_latchMotorLSD: 0|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w066_latchMotorOverCurr: 1|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w067_latchMotorUnderCurr: 2|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w068_latchMicroswitchError: 3|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w070_2ROccupiedUnbuckled: 5|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w071_3ROccupiedUnbuckled: 6|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w072_2RObstacleDetected: 7|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w073_occupiedUnsecured: 8|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w074_2RowTrackObstacle: 9|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w075_2RowPitchObstacle: 10|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w076_unexpectedStop: 11|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w077_jammedSeat: 12|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w079_DvrSideCfgMismatch: 14|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w081_trackUncalibrated: 16|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w082_pitchUncalibrated: 17|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w085_comfortSwitchMisuse: 20|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w086_easyEntrySwitchMisuse: 21|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w087_foldFlatSwitchMisuse: 22|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w090_CrashUnlockError: 25|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w091_CrashStateMismatch: 26|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w093_OTPError: 28|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w094_FreescaleHSDFault: 29|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w095_SeatUncalibrated1Row: 30|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w096_HeadUncalibrated1Row: 31|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w097_6040SeatUnlatched: 32|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w098_6040TrackUndercurrent: 33|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w100_chargePumpFail: 35|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w101_VBATOutOfRange: 36|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w102_8vRegulatorOutOfRange: 37|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w103_regulatorShortedToGND: 38|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w104_ECUOverCurrent: 39|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w105_ECUDebugMode: 40|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w106_HighCPULoad: 41|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w107_HighStackUsage: 42|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w108_2RHeatrTmpSnsInvalid: 43|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w109_3RHeatrTmpSnsInvalid: 44|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w110_2RSeatHeatSlowRise: 45|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w111_3RLSeatHeatFault: 46|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w112_3RSeatHeatSlowRise: 47|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w114_seatHeatFault: 49|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w115_2RHeatPadTempSensFLT: 50|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w116_3RHeatPadTempSensFLT: 51|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w117_2RHeatPadOvercurrent: 52|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w118_3RHeatPadOvercurrent: 53|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w119_2RCHeatPadOvercurrent: 54|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w120_trackMotorDisconnect: 55|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w121_pitchMotorDisconnect: 56|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w122_trackSensorDisconnect: 57|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w123_pitchSensorDisconnect: 58|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w124_3RFFMotorDisconnect: 59|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w125_3RHeadMotorDisconnect: 60|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w126_comfortHoldDown: 61|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w127_easyEntryHoldDown: 62|1@1+ (1,0) [0|0] "" X
+ SG_ BCS2R_w128_foldFlatHoldDown: 63|1@1+ (1,0) [0|0] "" X
+
+BO_ 813 IBST_info: 8 ETH
+ SG_ IBST_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_buildType m10: 8|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_componentId m10: 48|16@1+ (1,0) [0|0] "" X
+ SG_ IBST_pcbaId m11: 16|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_assemblyId m11: 24|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_usageId m11: 32|16@1+ (1,0) [0|0] "" X
+ SG_ IBST_udsProtocolVersion m20: 8|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_bootloaderCrc m20: 32|32@1+ (1,0) [0|0] "" X
+ SG_ IBST_applicationCrc m13: 32|32@1+ (1,0) [0|0] "" X
+ SG_ IBST_variantCrc m22: 32|32@1+ (1,0) [0|0] "" X
+
+BO_ 836 EPB_alertMatrix4: 8 ETH
+ SG_ EPB_u001_calibrationRequired: 0|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u002_carMayRoll: 1|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u003_dynamicBrakeApplied: 2|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u004_pressFootBrake: 3|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u005_epbProblem: 4|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u006_epbNotReleased: 5|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u007_dynNotApplied: 6|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u008_turnOnCarToPark: 7|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u009_towModeEnabled: 8|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u010_serviceModeEnabled: 9|1@1+ (1,0) [0|0] "" X
+ SG_ EPB_u011_parkSlope: 10|1@1+ (1,0) [0|0] "" X
+
+BO_ 849 RCM_info: 8 ETH
+ SG_ RCM_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoBuildType m10: 8|8@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoComponentID m10: 48|16@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoPcbaID m11: 16|8@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoAssemblyID m11: 24|8@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoUsageID m11: 32|16@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoBootUdsProtoVersion m20: 8|8@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoBootloaderCRC m20: 32|32@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoApplicationCRC m13: 32|32@1+ (1,0) [0|0] "" X
+ SG_ RCM_infoVariantCRC m22: 32|32@1+ (1,0) [0|0] "" X
+
+BO_ 856 GTW_chargeStatus: 8 ETH
+ SG_ GTW_aboutToChargeElab: 32|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeChargingElab: 40|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeCompleteElab: 48|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeDisconElab: 16|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeNoPowerElab: 24|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeState: 0|3@1+ (1,0) [0|0] "" X
+ SG_ GTW_chargeStoppedElab: 56|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_currentStateElab: 8|5@1+ (1,0) [0|0] "" X
+ SG_ GTW_offboardUpdateState: 13|3@1+ (1,0) [0|0] "" X
+ SG_ GTW_offboardUpdateStatus: 5|3@1+ (1,0) [0|0] "" X
+
+BO_ 858 THC_power: 8 ETH
+ SG_ THC_HVPowerLimit: 48|16@1+ (0.01,0) [0|0] "kW" X
+ SG_ THC_limitedBatteryHeater: 44|1@1+ (1,0) [0|0] "" X
+ SG_ THC_limitedCompressor: 45|1@1+ (1,0) [0|0] "" X
+ SG_ THC_limitedPtcHeater: 46|1@1+ (1,0) [0|0] "" X
+ SG_ THC_limitedPtcrHeater: 47|1@1+ (1,0) [0|0] "" X
+ SG_ THC_totalPowerConsumed12V: 32|12@1+ (0.001,0) [0|0] "kW" X
+ SG_ THC_totalPowerConsumedHV: 16|16@1+ (0.001,0) [0|0] "kW" X
+
+BO_ 861 IBST_dtcMatrix: 8 ETH
+ SG_ IBST_dtcIndex M: 0|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_d000_bmsInitTestFail m0: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d001_bmcSingleTransTest m0: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d002_tle5012SsccrcFail m0: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d003_tle5012Config m0: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d004_deadlMonTaskx1Ovr m0: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d005_ecuWdFltCntTstFls m0: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d006_ecuWdScheduleTout m0: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d007_ecuWdStarttestFls m0: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d008_ecuWdStatusContErr m0: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d009_netOvrvolt m0: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d010_micSpiTout m0: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d011_micSpiTransferErr m0: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d012_netUndvolt m0: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d013_xpassToutErr m0: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d014_rpsOffsEeReadEmpty m0: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d015_rtpEnaHigh m0: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d016_xpassEchoCountErr m0: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d017_preDriveChckFail m0: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d018_ucSafetyFlt m0: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d019_unsupportedHw m0: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d020_voltPreRegModeFld m0: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d021_ubbSupplyLine m0: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d022_stmAswSysTout m0: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d023_stackOvrUndFlow m0: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d024_smmOneReqsInit m0: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d025_ptsSupply m0: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d026_ptsSupplyUndvolt m0: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d027_tempB6Plaus m0: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d028_ecuWdErrCntContErr m1: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d029_bmcShortedGateTest m1: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d030_controllerDevTooBig m1: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d031_ibDtrFail m1: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d032_oc6InitTestFail m1: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d033_oc6Monitor m1: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d034_motorOscillationDet m1: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d035_rpsOffsEeReadFail m1: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d036_sysErrHook m1: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d037_calIdlePosNotPlaus m1: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d038_boostSupUndrvolt m1: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d039_calRoutineAbort m1: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d040_bmcGateUndervoltPro m1: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d041_hswInitPhseUndrvolt m1: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d042_ltmWarnLevelReached m1: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d043_rpsVctrLengthRelErr m1: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d044_b6TempDegradeLevel1 m1: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d045_B6TempDegradeLevel2 m1: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d046_spiAnglOrRawNotUp m1: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d047_dcomIboosterNotInit m1: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d048_unintendMotorReturn m1: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d049_cdmOvrvoltLevel1 m1: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d050_cdmUndrvoltLevel2 m1: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d051_cdmUndrvoltLevel1 m1: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d052_motTrvlRelReadFail m1: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d053_tle5012UnexpReset m1: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d054_bmsGateUndrvolt m1: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d055_kl15HwPlausSw m1: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d056_ibNotShutDownRight m2: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d057_cdmHardUndrvolt m2: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d058_cdmHardOvrvolt m2: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d059_maxTrvlAdjstUpdFail m2: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d060_ltmLimitReached m2: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d061_dcomEcuDefect m2: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d062_inputStroke1RngHigh m2: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d063_inputStroke1RngLow m2: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d064_inputStroke2RngHigh m2: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d065_inputStroke2RngLow m2: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d066_ibSupVoltDivDrift m2: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d067_sOutRodToPressVal m2: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d068_tle5012LifeCnt m2: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d069_cdmExtendedUndrvolt m2: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d070_cdmExtendedOvrvolt m2: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d071_tempB6Ch1LineHigh m2: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d072_tempB6Ch1LineLow m2: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d073_tempB6Ch2LineHigh m2: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d074_tempB6Ch2LineLow m2: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d075_hevSwitchOffDcom m2: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d076_tle5012VoltFail m2: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d077_bcsFltCurrentHigh m2: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d078_bcsFltCurrentLow m2: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d079_ecuSupVoltDivDrift m2: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d080_inputstroke1Grad m2: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d081_pts1Err m2: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d082_pts1LineGnd m2: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d083_pts1LineHigh m2: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d084_inputStroke2Grad m3: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d085_pts2Err m3: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d086_pts2LineGnd m3: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d087_pts2LineHigh m3: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d088_faildevInputStroke m3: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d089_ptsOffsTooHigh m3: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d090_pbistErr m3: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d091_ramInitErr m3: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d092_ramsinlgeFlt m3: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d093_bertFlt m3: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d094_CalDataNotPlaus m3: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d095_canEHwError m3: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d096_canETout m3: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d097_cpuException m3: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d098_ecuBandGap m3: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d099_ecuBmsOnWhileWdTout m3: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d100_ecuErrpinCntTstFls m3: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d101_ecuHetException m3: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d102_ecuHetTuAddErr m3: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d103_ecuHetTuBusErr m3: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d104_ecuHetTuBusyErr m3: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d105_ecuHetTuException m3: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d106_ecuTaskMissing m3: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d107_hetRefError m3: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d108_micInitSpiTstFld m3: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d109_micInitSpiTransfErr m3: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d110_micIntMonGenBitMon m3: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d111_micIntVoltMonFld m3: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d112_motPosTrvlReadEmpty m4: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d113_motAngBoundReadEmpt m4: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d114_motShaftShiftDetect m4: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d115_osErrHook m4: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d116_pdurEInitFail m4: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d117_pdurEPduInstLost m4: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d118_pts1OffsEeReadEmpty m4: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d119_pts2OffsEeReadEmpty m4: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d120_rpsOffsXEeReadFail m4: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d121_rpsOffsYEeReadFail m4: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d122_rpsSynchEeReadFail m4: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d123_rpsAnglRecalcErr m4: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d124_motTrvlRelWriteFail m4: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d125_motTrvlRelReadEmpty m4: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d126_ptsEeReadEmpty m4: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d127_ecuAdcConversionErr m4: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d128_ecuAdcSelftestErr m4: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d129_ccmFlt m4: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d130_ecuRomCheck m4: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d131_esmNmiFlt m4: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d132_esmSafetyFlt m4: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d133_motPosTrvlReadFail m4: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d134_motPosTrvlWriteFail m4: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d135_motAnglBndReadErr m4: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d136_motAnglBndWriteErr m4: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d137_motAnglGradTooLarge m4: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d138_pdmCustomerIdMis m4: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d139_pdmDtFormatMis m4: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d140_pdmOutOfMemory m5: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d141_pdmFieldSizeMis m5: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d142_pdmHwAcsErr m5: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d143_pdmInternalHWErr m5: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d144_ptsCalHysWritFail m5: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d145_ptsCalValuesChkFail m5: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d146_pts1CalEeReadFail m5: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d147_pts1CalEeWriteFail m5: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d148_rpsFailCompErr m5: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d149_pts1OffsEeWriteFail m5: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d150_pts2CalEeReadFail m5: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d151_pts2CalEeWriteFail m5: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d152_pts2OffsEeReadFail m5: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d153_pts2OffsEeWriteFail m5: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d154_rpsOffsXEeReadEmpty m5: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d155_rpsOffsXEeWriteFail m5: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d156_rpsOffsYEeReadEmpty m5: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d157_rpsOffsYEeWriteFail m5: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d158_rpsSynchEeReadEmpty m5: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d159_rpsSynchEeWriteFail m5: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d160_assertionFail m5: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d161_comsclBrkPrsPduLen m5: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d162_comsclBrkPrsPduTout m5: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d163_comsclEspIb1CntErr m5: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d164_comsclEspIb1CsErr m5: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d165_comsclEspIb1DlcErr m5: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d166_comsclEspIb1Tout m5: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d167_comsclEspIb2CntErr m5: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d168_comsclEspIb2CsErr m6: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d169_comsclEspIb2DlcErr m6: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d170_comsclEspIb2Tout m6: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d171_comsclEspIb3CntErr m6: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d172_comsclEspIb3CsErr m6: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d173_comsclEspIb3DlcErr m6: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d174_comsclEspIb3Tout m6: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d175_comsclGtwEsp1CntErr m6: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d176_comsclGtwEsp1CsErr m6: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d177_comsclGtwEsp1Corrpt m6: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d178_comsclGtwEsp1Tout m6: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d179_dcomSmrtActuNotInit m6: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d180_rpsLengthAbsolHigh m6: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d181_rpsLengthAbsolLow m6: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d182_shutDownEeReadFail m6: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d183_shutDownEeWriteFail m6: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d184_maxTrvlAdjstReadErr m6: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d185_psOffsMcEeReadFail m6: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d186_psOffsMcEeWriteFail m6: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d187_ltmSelfProtDeact m6: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d188_pts1OffsEeReadFail m6: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d189_diffStrokeRange m6: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d190_notProgVin m6: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d191_plausVin m6: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d192_dlCorCSumVin m6: 56|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d193_ToutVin m6: 58|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d194_ecuEnableB6Fail m6: 60|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d195_ecuIbEnContErr m6: 62|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d196_sclEspIb1pEstMax m7: 8|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d197_sclEspIb1VehSpd m7: 10|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d198_sclEspIb2pLimExt m7: 12|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d199_sclEspIb2qTarExt m7: 14|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d200_sclEspIb3pFBlend m7: 16|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d201_sclEspIb3pMc1 m7: 18|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d202_sclEspIb3pTarDriver m7: 20|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d203_netBusOffNet0 m7: 22|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d204_netErrPassivNet0 m7: 24|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d205_netBusOffNet1 m7: 26|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d206_netErrPassivNet1 m7: 28|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d207_maxStrokeReached m7: 30|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d208_sysSwClockMismatch m7: 32|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d209_comsclGtwOdoCorrpt m7: 34|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d210_comsclGtwStatCorrpt m7: 36|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d211_comsclEpbStatCorrpt m7: 38|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d212_comsclGtwOdoTout m7: 40|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d213_comsclGtwStatTout m7: 42|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d214_comsclEpbStatTout m7: 44|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d215_comSclEpbStatCsErr m7: 46|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d216_comSclEpbStatCntFlt m7: 48|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d217_comSclDiTrq1Tout m7: 50|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d218_comSclDiTrq1Corrpt m7: 52|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d219_comSclDiTrq1CsErr m7: 54|2@1+ (1,0) [0|0] "" X
+ SG_ IBST_d220_comSclDiTrq1CntFlt m7: 56|2@1+ (1,0) [0|0] "" X
+
+BO_ 870 BCREAR_warningMatrix1: 8 ETH
+ SG_ BCREAR_w001_WatchdogReset: 0|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w002_PowerLossReset: 1|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w003_SWAssertion: 2|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w004_CANMIA: 3|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w005_CANHighError: 4|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w006_CANLowError: 5|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w007_LINTimeout: 6|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w008_LIN2Error: 7|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w009_LIN3Error: 8|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w010_ExtSupplyVoltError: 9|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w011_ECUSupplyVoltError: 10|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w012_CPUReset: 11|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w013_Shared13: 12|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w014_BridgeFault: 13|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w015_NVMMAlert: 14|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w016_MessageTimingError: 15|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w017_AwakeForTooLong: 16|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w018_ADCError: 17|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w019_I2CError: 18|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w020_PWMError: 19|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w021_TaskSchedulerError: 20|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w022_TaskInitError: 21|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w023_SleepError: 22|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w024_WakeError: 23|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w025_CrashEvent: 24|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w026_FlashMemoryError: 25|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w027_NVRAMCorruption: 26|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w028_NVRAMNotResponding: 27|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w029_NVRAMUninitialized: 28|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w030_PumpFailure: 29|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w031_SpoilerCalibFailed: 30|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w032_FalconStateError: 31|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w033_FalconThermalLimit: 32|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w034_FalconPositionSensor: 33|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w035_ExcessiveFalconDrift: 34|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w036_CannotReachTargetPos: 35|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w037_CannotPresentStriker: 36|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w038_DoorReqCRCMismatch: 37|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w039_ManualCloseRequested: 38|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w040_OpenTimeTarget: 39|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w041_CloseTimeTarget: 40|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w042_OperatingWithLow12V: 41|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w043_FalconIntSwitch: 42|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w044_FalconOpenAtSpeed: 43|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w045_TailLightLeftGate: 44|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w046_TailLightLeftBody: 45|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w047_StopLightLeftGate: 46|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w048_StopLightLeftBody: 47|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w049_ReverseLightLeft: 48|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w050_FogLightLeft: 49|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w051_TurnIndicatorLeft: 50|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w052_SideMarkerLeft: 51|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w053_TailLightRightGate: 52|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w054_TailLightRightBody: 53|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w055_StopLightRightGate: 54|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w056_StopLightRightBody: 55|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w057_ReverseLightRight: 56|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w058_FogLightRight: 57|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w059_TurnIndicatorRight: 58|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w060_SideMarkerRight: 59|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w061_CHMSLLight: 60|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w062_LicenseLight: 61|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w063_PLGError: 62|1@1+ (1,0) [0|0] "" X
+ SG_ BCREAR_w064_PLGCalibration: 63|1@1+ (1,0) [0|0] "" X
+
+BO_ 872 BCFDM_warningMatrix1: 8 ETH
+ SG_ BCFDM_w001_WatchdogReset: 0|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w002_PowerLossReset: 1|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w003_SWAssertion: 2|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w004_CANMIA: 3|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w005_CANHighError: 4|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w006_CANLowError: 5|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w007_LINTimeout: 6|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w008_LIN2Error: 7|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w009_LIN3Error: 8|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w010_ExtSupplyVoltError: 9|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w011_ECUSupplyVoltError: 10|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w012_CPUReset: 11|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w013_Shared13: 12|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w014_BridgeFault: 13|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w015_NVMMAlert: 14|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w016_MessageTimingError: 15|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w017_AwakeForTooLong: 16|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w018_ADCError: 17|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w019_I2CError: 18|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w020_PWMError: 19|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w021_TaskSchedulerError: 20|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w022_TaskInitError: 21|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w023_SleepError: 22|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w024_WakeError: 23|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w025_CrashEvent: 24|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w026_FlashMemoryError: 25|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w027_NVRAMCorruption: 26|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w028_NVRAMNotResponding: 27|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w029_NVRAMUninitialized: 28|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w030_LockedDoorOpened: 29|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w031_WindowRegulator: 30|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w032_WindowCommError: 31|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w033_PuddleLamp: 32|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w034_WindowSwitchLED: 33|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w035_AmbientLighting: 34|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w036_InteriorSwitch: 35|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w037_ExteriorSwitch: 36|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w038_SwitchpackError: 37|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w039_MirrorMovement: 38|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w040_MirrorMotor: 39|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w041_MirrorPosition: 40|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w042_MirrorMemory: 41|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w043_MirrorFolding: 42|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w044_MirrorHeat: 43|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w045_doorIcedRetryUnlatch: 44|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w046_DoorIceBreaker: 45|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w047_DoorEncoder: 46|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w048_DoorMotor: 47|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w049_DoorStall: 48|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w050_DoorReactiveObstacle: 49|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w051_DoorBrake: 50|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w052_PFDBadState: 51|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w053_PFDIOInit: 52|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w054_PFDIOProcessData: 53|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w055_PFDSetState: 54|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w056_MirrorHeatError: 55|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w057_ReflectorLamp: 56|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w058_DoorConfigError: 57|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w059_LatchCommError: 58|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w060_LatchReportsFailure: 59|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w061_DoorBrakeUncalibrated: 60|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w062_PFDLinkageFault: 61|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w063_LatchSwitchError: 62|1@1+ (1,0) [0|0] "" X
+ SG_ BCFDM_w064_LatchReleaseError: 63|1@1+ (1,0) [0|0] "" X
+
+BO_ 916 PMS_alertMatrix2: 8 ETH
+ SG_ PMS_w001_absoluteTorque: 0|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w002_accumulatedTorque: 1|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w003_torqueReversal: 2|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w004_regenTorque: 3|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w005_torqueInNeutral: 4|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w006_inconsistentDIGear: 5|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w007_watchdogReset: 6|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w008_memoryError: 7|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w009_espMIA: 8|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w010_diMIA: 9|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w011_phaseCurrentIrrational: 10|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w012_canData: 11|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w013_canHardware: 12|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w014_accelPedalError: 13|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w015_shifterMIA: 14|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w016_cruiseMIA: 15|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w017_brakeMIA: 16|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w018_encoderIrrational: 17|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w019_statorTempIrrational: 18|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w020_cruiseTorqueExceeded: 19|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w021_cruiseSpeedRegulation: 20|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w022_crsCmdOnStateOff: 21|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w023_crsCmdOffStateOn: 22|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w024_brakeIrrational: 23|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w025_crsOnBrake: 24|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w026_diHeartBeatMIA: 25|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w027_torqueOutOfMap: 26|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w028_torqueCmdError: 27|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w029_limpTorque: 28|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w030_inconsistentAebState: 29|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w031_highStackUsage: 30|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w032_registerConfigError: 31|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w033_selfTest: 32|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w034_trqCrossCheck: 33|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w035_brkMIA: 34|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w036_cpcMIA: 35|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w037_engMIA: 36|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w038_inconsistentTorqueSign: 37|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w039_disMIA: 38|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w040_pmMIA: 39|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w041_unused: 40|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w042_gtwMIA: 41|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w043_inconsistentConfig: 42|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w044_unused: 43|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w045_spiError: 44|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w046_inconsVehicleHoldState: 45|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w047_inconsAutoparkState: 46|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w048_unused: 47|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w049_unused: 48|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w050_unused: 49|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w051_unused: 50|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w052_unused: 51|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w053_unused: 52|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w054_unused: 53|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w055_unused: 54|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w056_unused: 55|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w057_unused: 56|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w058_unused: 57|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w059_unused: 58|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w060_unused: 59|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w061_DIPMVersionMismatch: 60|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w062_unused: 61|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w063_unused: 62|1@1+ (1,0) [0|0] "" X
+ SG_ PMS_w064_torqueIntervention: 63|1@1+ (1,0) [0|0] "" X
+
+BO_ 925 IBST_status: 4 ETH
+ SG_ IBST_brakeInputStroke: 20|10@1+ (0.05,-0.5) [0|0] "mm" X
+ SG_ IBST_iBoosterStatus: 17|3@1+ (1,0) [0|0] "" X
+ SG_ IBST_pedalCalCurrentChecksum: 0|8@1+ (1,0) [0|0] "" X
+ SG_ IBST_pedalCalCurrentCounter: 8|4@1+ (1,0) [0|0] "" X
+ SG_ IBST_pedalCalCurrentCurve: 12|4@1+ (1,0) [0|0] "1" X
+ SG_ IBST_pedalCalTxEnabled: 16|1@1+ (1,0) [0|0] "1" X
+
+BO_ 1042 BMS_ctrStatus: 6 ETH
+ SG_ BMS_ctrDisabled: 41|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_feimNeeded: 40|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_vDeltaNegCtrDrop: 8|8@1- (0.125,0) [0|0] "V" X
+ SG_ BMS_vDeltaPackCurrent: 16|8@1+ (5,-1000) [0|0] "A" X
+ SG_ BMS_vDeltaPackMinus: 32|8@1+ (2,0) [0|0] "V" X
+ SG_ BMS_vDeltaPackPlus: 24|8@1+ (2,0) [0|0] "V" X
+ SG_ BMS_vDeltaPosCtrDrop: 0|8@1- (0.125,0) [0|0] "V" X
+ SG_ BMS_weldedNeg: 43|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_weldedNegLatched: 45|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_weldedPos: 42|1@1+ (1,0) [0|0] "" X
+ SG_ BMS_weldedPosLatched: 44|1@1+ (1,0) [0|0] "" X
+
+BO_ 1064 UI_telemetryControl: 8 ETH
+ SG_ UI_TCR_classConstElem: 5|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_classMovingFourWheel: 8|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_classMovingPed: 6|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_classMovingTwoWheel: 7|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_classUnknown: 9|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_downSampleFactor: 16|4@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_enable: 0|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_maxDy: 48|5@1+ (0.5,0) [0|0] "m" X
+ SG_ UI_TCR_maxObjects: 56|5@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_maxRoadClass: 61|3@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_minRCS: 40|8@1+ (0.25,-14) [0|0] "dB" X
+ SG_ UI_TCR_moveStateIndeterm: 4|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_moveStateMoving: 3|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_moveStateStanding: 1|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_moveStateStopped: 2|1@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_vehSpeed: 32|8@1+ (1,0) [0|0] "" X
+ SG_ UI_TCR_wExist: 24|5@1+ (1,0) [0|0] "" X
+
+BO_ 1622 DI_info: 8 ETH
+ SG_ DI_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
+ SG_ DI_buildType m10: 8|8@1+ (1,0) [0|0] "" X
+ SG_ DI_buildConfigurationId m10: 16|16@1+ (1,0) [0|0] "" X
+ SG_ DI_hardwareId m10: 32|16@1+ (1,0) [0|0] "" X
+ SG_ DI_componentId m10: 48|16@1+ (1,0) [0|0] "" X
+ SG_ DI_pcbaId m11: 16|8@1+ (1,0) [0|0] "" X
+ SG_ DI_assemblyId m11: 24|8@1+ (1,0) [0|0] "" X
+ SG_ DI_usageId m11: 32|16@1+ (1,0) [0|0] "" X
+ SG_ DI_subUsageId m11: 48|16@1+ (1,0) [0|0] "" X
+ SG_ DI_applicationSvnRevision m12: 8|24@1+ (1,0) [0|0] "" X
+ SG_ DI_applicationSvnUrlHash m12: 32|32@1+ (1,0) [0|0] "" X
+ SG_ DI_applicationCrc m13: 32|32@1+ (1,0) [0|0] "" X
+ SG_ DI_bootloaderSvnRevision m14: 8|24@1+ (1,0) [0|0] "" X
+ SG_ DI_bootloaderSvnUrlHash m14: 32|32@1+ (1,0) [0|0] "" X
+ SG_ DI_FPGA_version m16: 16|8@1+ (1,0) [0|0] "" X
+ SG_ DI_appGitHash m17: 10|54@1+ (4,0) [0|0] "" X
+ SG_ DI_bootGitHash m18: 10|54@1+ (4,0) [0|0] "" X
+ SG_ DI_platformTyp m19: 8|8@1+ (1,0) [0|0] "" X
+ SG_ DI_infoBootLdUdsProtocolVersion m20: 8|8@1+ (1,0) [0|0] "" X
+ SG_ DI_bootloaderCrc m20: 32|32@1+ (1,0) [0|0] "" X
+
+BO_ 1629 PM_info: 8 ETH
+ SG_ PM_infoIndex M: 0|8@1+ (1,0) [0|0] "" X
+ SG_ PM_buildType m10: 8|8@1+ (1,0) [0|0] "" X
+ SG_ PM_buildConfigurationId m10: 16|16@1+ (1,0) [0|0] "" X
+ SG_ PM_hardwareId m10: 32|16@1+ (1,0) [0|0] "" X
+ SG_ PM_componentId m10: 48|16@1+ (1,0) [0|0] "" X
+ SG_ PM_pcbaId m11: 16|8@1+ (1,0) [0|0] "" X
+ SG_ PM_assemblyId m11: 24|8@1+ (1,0) [0|0] "" X
+ SG_ PM_usageId m11: 32|16@1+ (1,0) [0|0] "" X
+ SG_ PM_subUsageId m11: 48|16@1+ (1,0) [0|0] "" X
+ SG_ PM_applicationCrc m13: 32|32@1+ (1,0) [0|0] "" X
+ SG_ PM_bootloaderSvnRevision m14: 8|24@1+ (1,0) [0|0] "" X
+ SG_ PM_bootloaderSvnUrlHash m14: 32|32@1+ (1,0) [0|0] "" X
+ SG_ PM_appGitHash m17: 10|54@1+ (4,0) [0|0] "" X
+ SG_ PM_bootGitHash m18: 10|54@1+ (4,0) [0|0] "" X
+ SG_ PM_platformTyp m19: 8|8@1+ (1,0) [0|0] "" X
+ SG_ PM_udsProtocolVersion m20: 8|8@1+ (1,0) [0|0] "" X
+ SG_ PM_bootloaderCrc m20: 32|32@1+ (1,0) [0|0] "" X
+ SG_ PM_diNodeBuildType m21: 8|8@1+ (1,0) [0|0] "" X
+ SG_ PM_diNodeBuildConfigurationId m21: 16|16@1+ (1,0) [0|0] "" X
+ SG_ PM_diNodeApplicationCrc m21: 32|32@1+ (1,0) [0|0] "" X
+
+BO_ 1661 PM_version: 8 ETH
+ SG_ PM_componentBranchOrigin: 40|8@1+ (1,0) [0|0] "" X
+ SG_ PM_componentHardwareId: 56|8@1+ (1,0) [0|0] "" X
+ SG_ PM_componentMajorVersion: 32|8@1+ (1,0) [0|0] "" X
+ SG_ PM_componentMaturity: 48|8@1+ (1,0) [0|0] "" X
+ SG_ PM_platformBranchOrigin: 16|8@1+ (1,0) [0|0] "" X
+ SG_ PM_platformMajorVersion: 8|8@1+ (1,0) [0|0] "" X
+ SG_ PM_platformMaturity: 24|8@1+ (1,0) [0|0] "" X
+ SG_ PM_platformType: 0|8@1+ (1,0) [0|0] "" X
+
+// END Model S
